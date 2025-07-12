@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Projects</title>
+  <link rel="stylesheet" href="Css/project.css" />
+  <link rel="stylesheet" href="Css/navbar.css"/>
+  <script src="JS/project.js" defer></script>
+</head>
+<body>
+    
+  <div id="navbar-container"></div>
+
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html">DEV - HUB</a></li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <li><a href="comments.html">Comments</a></li>
+    <li><a href="account.html">Account</a></li>
+    <li><a href="Login.html" onclick="logout()">Logout</a></li>
+  </ul>
+</nav>
+
+  <div class="project-container">
+    <h2>Your Portfolio Projects</h2>
+
+    <!-- 🔍 Search / Filter Input -->
+    <input type="text" id="filterProjects" placeholder="Search by title or tech stack..." class="filter-box" />
+
+    <!-- ➕ Add New Project Button -->
+    <button class="add-btn" onclick="openProjectModal()">+ Add New Project</button>
+
+    <!-- 📦 Project Cards -->
+    <div id="projectList" class="project-list">
+      <!-- Project cards rendered here by JS -->
+    </div>
+  </div>
+
+  <!-- ✏️ Modal: Add/Edit Project -->
+  <div id="projectModal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="modalTitle">Add New Project</h3>
+      <form id="projectForm">
+        
+        <label for="projectTitle">Title:</label>
+        <input type="text" id="projectTitle" name="projectTitle" placeholder="e.g., DevHub Platform" required />
+
+        <label for="projectDesc">Description:</label>
+        <textarea id="projectDesc" name="projectDesc" placeholder="Brief overview of your project..." required></textarea>
+
+        <label for="projectTech">Tech Stack (comma separated):</label>
+        <input type="text" id="projectTech" name="projectTech" placeholder="e.g., Java, Spring Boot, MySQL" required />
+
+        <label for="projectGitHub">GitHub Link:</label>
+        <input type="url" id="projectGitHub" name="projectGitHub" placeholder="https://github.com/..." required />
+
+        <label for="projectDemo">Live Demo Link (optional):</label>
+        <input type="url" id="projectDemo" name="projectDemo" placeholder="https://yourproject.com" />
+
+        <!-- Modal Buttons -->
+        <div style="margin-top: 20px;">
+          <button type="submit" class="submit-btn">Save</button>
+          <button type="button" class="cancel-btn" onclick="closeProjectModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

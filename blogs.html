@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Blogs</title>
+  <link rel="stylesheet" href="Css/blogs.css" />
+    <link rel="stylesheet" href="Css/navbar.css"/>
+  <script src="JS/blogs.js" defer></script>
+</head>
+<body>
+    
+  <div id="navbar-container"></div>
+
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html">DEV - HUB</a></li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <li><a href="comments.html">Comments</a></li>
+    <li><a href="account.html">Account</a></li>
+    <li><a href="Login.html" onclick="logout()">Logout</a></li>
+  </ul>
+</nav>
+
+  <div class="container">
+    <h2>Your Blogs</h2>
+    
+    <!-- Search/Filter -->
+    <input type="text" id="filterInput" placeholder="Filter by title or tag..." class="filter-box"/>
+
+    <!-- Create Blog -->
+    <button class="create-btn" onclick="createBlog()">+ Create New Blog</button>
+
+    <!-- Blog List -->
+    <div id="blogList" class="blog-list"></div>
+  </div>
+
+  <!-- Create Blog Modal -->
+  <div id="createBlogModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Create New Blog</h3>
+      <form id="blogForm">
+        <label>Title:</label>
+        <input type="text" id="blogTitle" required />
+
+        <label>Tags (comma separated):</label>
+        <input type="text" id="blogTags" required />
+
+        <label>Date:</label>
+        <input type="date" id="blogDate" required />
+
+        <button type="submit" class="submit-btn">Create</button>
+        <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

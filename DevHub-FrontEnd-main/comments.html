@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Comments</title>
+  <link rel="stylesheet" href="Css/comments.css" />
+    <link rel="stylesheet" href="Css/navbar.css"/>
+
+  <script src="JS/comments.js" defer></script>
+</head>
+<body>
+    
+  <div id="navbar-container"></div>
+
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html">DEV - HUB</a></li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <li><a href="comments.html">Comments</a></li>
+    <li><a href="account.html">Account</a></li>
+    <li><a href="Login.html" onclick="logout()">Logout</a></li>
+  </ul>
+</nav>
+
+  <div class="comment-container">
+    <h2>Comments Received</h2>
+    
+    <input type="text" id="filterComments" placeholder="Search by author or keyword..." class="filter-box" />
+
+    <div id="commentList" class="comment-list">
+      <!-- Comments rendered via JS -->
+    </div>
+  </div>
+</body>
+</html>

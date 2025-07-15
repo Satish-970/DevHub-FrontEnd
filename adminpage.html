@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="Css/navbar.css" />
+  <link rel="stylesheet" href="Css/admin.css" />
+  <script src="JS/admin.js" defer></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+ 
+ <nav class="navbar">
+  <ul>
+    <li><a href="index.html">DEV - HUB</a></li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <!-- <li><a href="comments.html">Comments</a></li> -->
+    <li><a href="account.html">Account</a></li>
+    <li><a href="Login.html" onclick="logout()">Logout</a></li>
+    <li><a href="adminlogin.html">Admin Panel</a></li>
+  </ul>
+
+</nav>
+
+
+  <main class="admin-container">
+    <h2>Manage Users</h2>
+    <div id="user-list" class="user-grid">
+      <!-- User cards will be dynamically injected here -->
+    </div>
+    <h2 style="margin-top: 50px;">Manage User Comments</h2>
+    <div id="comment-list" class="comment-grid">
+    <!-- Admin-managed comments will be rendered here -->
+    </div>
+
+  </main>
+</body>
+</html>

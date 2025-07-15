@@ -1,0 +1,210 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+  color: #e5e7eb;
+  padding-bottom: 50px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* 🔹 Admin Container Animation */
+.admin-container {
+  padding: 20px;
+  margin-top: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔹 Section Headings */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #60a5fa;
+  font-size: 32px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #3b82f6;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+}
+
+/* 🔹 Grid Layout */
+.user-grid, .comment-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.comment-grid {
+  margin-top: 30px;
+}
+
+/* 🔹 User Cards */
+.user-card {
+  background: rgba(31, 41, 55, 0.95);
+  border: 1px solid #3b82f6;
+  border-radius: 16px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(59, 130, 246, 0.25);
+  filter: brightness(1.05);
+}
+
+.user-info h4 {
+  margin: 10px 0 5px;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.user-info p {
+  font-size: 14px;
+  color: #cbd5e1;
+  text-align: center;
+}
+
+/* 🔹 User Action Buttons */
+.user-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.user-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 45%;
+}
+
+.edit-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+  transform: scale(1.05);
+}
+
+/* 🔹 Comments */
+.comment-card {
+  background: rgba(31, 41, 55, 0.95);
+  border: 1px solid #64748b;
+  border-radius: 12px;
+  padding: 16px;
+  width: 500px;
+  box-shadow: 0 4px 14px rgba(100, 116, 139, 0.2);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(100, 116, 139, 0.3);
+  filter: brightness(1.05);
+}
+
+.comment-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.comment-card p {
+  color: #d1d5db;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.comment-card button {
+  padding: 6px 10px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  float: right;
+  transition: background-color 0.3s ease;
+}
+
+.comment-card button:hover {
+  background-color: #dc2626;
+}
+
+/* 🔹 Scrollbar Styling */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #3b82f6;
+  border-radius: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+  .user-card,
+  .comment-card {
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .user-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .user-actions button {
+    width: 100%;
+  }
+}

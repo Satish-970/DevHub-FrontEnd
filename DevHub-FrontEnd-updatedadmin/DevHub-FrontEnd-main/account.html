@@ -1,0 +1,89 @@
+<!-- account.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account</title>
+  <link rel="stylesheet" href="Css/account.css" />
+   <link rel="stylesheet" href="Css/navbar.css"/>
+  <script src="JS/account.js" defer></script>
+</head>
+<body>
+    
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html">DEV - HUB</a></li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <li><a href="comments.html">Comments</a></li>
+    <li><a href="account.html">Account</a></li>
+    <li><a href="Login.html" onclick="logout()">Logout</a></li>
+  </ul>
+</nav>
+
+  <div class="account-container">
+    <h2>My Profile</h2>
+    <div class="profile-card">
+      <img id="profileImage" src="assets/default-profile.png" alt="Profile Image" class="profile-img" />
+      <input type="file" id="imageUpload" accept="image/*" class="hidden" />
+      <button class="edit-img-btn" onclick="document.getElementById('imageUpload').click()">Change Image</button>
+
+      <form id="profileForm">
+        <label>Name:</label>
+        <input type="text" id="userName" placeholder="Your Name" required />
+
+        <label>Email:</label>
+        <input type="email" id="userEmail" readonly />
+
+        <label>Bio:</label>
+        <textarea id="userBio" placeholder="Tell us about yourself..." rows="4"></textarea>
+
+        <label>Social Links:</label>
+        <input type="url" id="userLinkedIn" placeholder="LinkedIn URL" />
+        <input type="url" id="userGitHub" placeholder="GitHub URL" />
+
+        <div class="btn-group">
+          <button type="submit" class="save-btn">Save</button>
+          <button type="button" class="cancel-btn" onclick="resetForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
+  
+<div class="user-profile-container">
+    <div class="user-info">
+      <img id="devImage" src="assets/default-profile.png" alt="Developer" class="user-img" />
+      <h2 id="devName">Dev Name</h2>
+      <p id="devBio">Short bio will appear here...</p>
+      <div id="socialLinks">
+        <a href="#" id="linkedinLink" target="_blank">LinkedIn</a>
+        <a href="#" id="githubLink" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <div class="user-projects">
+      <h3>Projects</h3>
+      <div id="projectList" class="grid-list">
+        <p class="empty-msg">No projects to show.</p>
+      </div>
+    </div>
+
+    <div class="user-blogs">
+      <h3>Blogs</h3>
+      <ul id="blogList">
+        <li class="empty-msg">No blogs published yet.</li>
+      </ul>
+    </div>
+
+    <div class="user-comments">
+      <h3>Comments</h3>
+      <ul id="commentList">
+        <li class="empty-msg">No public comments.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

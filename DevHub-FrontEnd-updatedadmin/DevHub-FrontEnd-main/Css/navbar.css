@@ -1,0 +1,105 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(17, 24, 39, 0.75); /* translucent dark */
+  backdrop-filter: blur(12px);
+  padding: 14px 40px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* 🔥 Logo/Brand Styling */
+.navbar .brand {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+/* 🔗 Nav Items */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a:hover {
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a {
+  color: #f1f5f9;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 12px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* ✨ Underline hover with scale effect */
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #3b82f6;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.navbar a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ✴️ Hover and Active State */
+.navbar a:hover {
+  color: #3b82f6;
+  transform: translateY(-1px);
+}
+
+.navbar .active {
+  color: #3b82f6;
+  text-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+}
+
+/* 🌀 Centering Navigation */
+.navbar {
+  justify-content: space-between;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 12px 20px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .navbar .brand {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+}

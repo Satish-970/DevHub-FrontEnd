@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="Css/admin.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+      color: #e5e7eb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-card {
+      background: rgba(31, 41, 55, 0.9);
+      border: 1px solid #3b82f6;
+      border-radius: 16px;
+      padding: 40px;
+      width: 360px;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .login-card h2 {
+      text-align: center;
+      color: #60a5fa;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .login-card input {
+      padding: 12px;
+      border: 1px solid #3b82f6;
+      border-radius: 8px;
+      background-color: #1f2937;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .login-card input::placeholder {
+      color: #9ca3af;
+    }
+
+    .login-card button {
+      padding: 12px;
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-card button:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h2>Admin Login</h2>
+    <input type="email" id="adminEmail" placeholder="Admin Email" />
+    <input type="password" id="adminPassword" placeholder="Password" />
+    <button onclick="adminLogin()">Login</button>
+    <button onclick="window.location.href='index.html'">Back to dashboard</button>
+  </div>
+
+  <script>
+    function adminLogin() {
+      const email = document.getElementById("adminEmail").value.trim();
+      const password = document.getElementById("adminPassword").value.trim();
+
+      const validAdmin = {
+        email: "valli0804@devhub.com",
+        password: "admin0804"
+      };
+
+      if (email === validAdmin.email && password === validAdmin.password) {
+        localStorage.setItem("isAdminLoggedIn", "true");
+        window.location.href = "adminpage.html";
+      } else {
+        alert("Invalid admin credentials.");
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="Css/admin.css" />
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 100px auto;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .login-container h2 {
+      text-align: center;
+      color: var(--accent-color);
+    }
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 16px;
+      background: #1f2937;
+      border: 1px solid #3b82f6;
+      border-radius: 8px;
+      color: #fff;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .login-container button:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <input type="email" id="adminEmail" placeholder="Admin Email" required />
+    <input type="password" id="adminPassword" placeholder="Password" required />
+    <button onclick="adminLogin()">Login</button>
+    <button onclick="window.location.href='index.html'">Back to dashboard</button>
+  </div>
+
+  <script>
+    function adminLogin() {
+      const email = document.getElementById("adminEmail").value.trim();
+      const password = document.getElementById("adminPassword").value.trim();
+
+      // Hardcoded for demo purposes — replace with backend check in real use
+      const validAdmin = {
+        email: "valli0804@devhub.com",
+        password: "admin0804"
+      };
+
+      if (email === validAdmin.email && password === validAdmin.password) {
+        localStorage.setItem("isAdminLoggedIn", "true");
+        window.location.href = "adminpage.html";
+      } else {
+        alert("Invalid admin credentials.");
+      }
+    }
+  </script>
+</body>
+</html> -->

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="Css/LoginStyle.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1b1b81);
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
+
+    .tab-btn {
+      background-color: #1f2937;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid #3b82f6;
+    }
+
+    .tab-btn.active {
+      background-color: #3b82f6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .card {
+      background: rgba(31, 41, 55, 0.95);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+      backdrop-filter: blur(10px);
+      width: 100%;
+      max-width: 420px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="w-full max-w-lg mx-auto p-4">
+  <!-- Tab Switch -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('userForm')">User Login</button>
+    <button class="tab-btn" onclick="showTab('adminForm')">Admin Login</button>
+  </div>
+
+  <!-- 🔐 User Login/Signup Form -->
+  <div class="card" id="userForm">
+    <h2 class="text-2xl font-bold text-center text-gray-100 mb-6" id="formTitle">Welcome Back</h2>
+
+    <button onclick="signInWithGitHub()" class="w-full flex items-center justify-center bg-gray-800 text-white py-2 rounded-md hover:bg-black transition duration-300 mb-4">
+      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.2c-3.2.7-3.8-1.4-3.8-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2.9 1.7 2.5 1.2 3.1.9.1-.6.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.5.1-3 0 0 .9-.3 3 .9.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.1-1.2 3-.9 3-.9.6 1.5.2 2.7.1 3 .7.8 1.1 1.8 1.1 3 0 4.1-2.6 5-5.1 5.3.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6C20.7 21.4 24 17.1 24 12c0-6.3-5.2-11.5-12-11.5z"/>
+      </svg>
+      Sign in with GitHub
+    </button>
+
+    <div class="flex items-center my-4">
+      <div class="flex-grow border-t border-gray-300"></div>
+      <span class="mx-4 text-gray-400">or</span>
+      <div class="flex-grow border-t border-gray-300"></div>
+    </div>
+
+    <form id="loginForm" onsubmit="handleSubmit(event)">
+      <div class="mb-4">
+        <label for="Username" class="block text-sm font-medium text-gray-300">Username</label>
+        <input type="text" id="Username" name="Username" required class="mt-1 w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="User">
+      </div>
+
+      <div class="mb-6 relative">
+        <label for="password" class="block text-sm font-medium text-gray-300">Password</label>
+        <input type="password" id="password" name="password" required class="mt-1 w-full px-3 py-2 border border-gray-600 rounded-md pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="••••••••">
+        <button type="button" onclick="togglePassword()" class="absolute right-3 top-9 text-sm text-gray-400 hover:text-white">Show</button>
+      </div>
+
+      <button type="submit"  id="authButton" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300" onclick="window.location.href='index.html'">
+        Login
+      </button>
+    </form>
+
+    <p class="mt-4 text-center text-sm text-gray-400" id="authToggleText">
+      Don't have an account?
+      <a href="#" class="text-blue-400 hover:underline" onclick="switchToSignUp()">Sign Up</a>
+    </p>
+  </div>
+
+  <!-- 👑 Admin Login -->
+  <div class="card hidden" id="adminForm">
+    <h2 class="text-2xl font-bold text-center text-blue-400 mb-6">Admin Login</h2>
+    <input type="email" id="adminEmail" placeholder="Admin Email" class="w-full mb-3 px-3 py-2 border border-blue-500 rounded-md bg-gray-800 text-white" />
+    <input type="password" id="adminPassword" placeholder="Password" class="w-full mb-4 px-3 py-2 border border-blue-500 rounded-md bg-gray-800 text-white" />
+    <button onclick="adminLogin()" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">Login</button>
+    <button onclick="showTab('userForm')" class="w-full mt-3 bg-gray-600 text-white py-2 rounded-md hover:bg-gray-700 transition">Back to User Login</button>
+  </div>
+</div>
+
+<script>
+  function showTab(tabId) {
+    document.getElementById("userForm").classList.add("hidden");
+    document.getElementById("adminForm").classList.add("hidden");
+    document.getElementById(tabId).classList.remove("hidden");
+
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    if (tabId === "userForm") {
+      document.querySelectorAll('.tab-btn')[0].classList.add('active');
+    } else {
+      document.querySelectorAll('.tab-btn')[1].classList.add('active');
+    }
+  }
+
+  function adminLogin() {
+    const email = document.getElementById("adminEmail").value.trim();
+    const password = document.getElementById("adminPassword").value.trim();
+    const validAdmin = {
+      email: "valli0804@devhub.com",
+      password: "admin0804"
+    };
+    if (email === validAdmin.email && password === validAdmin.password) {
+      localStorage.setItem("isAdminLoggedIn", "true");
+      window.location.href = "adminpage.html";
+    } else {
+      alert("Invalid admin credentials.");
+    }
+  }
+
+  function togglePassword() {
+    const input = document.getElementById("password");
+    input.type = input.type === "password" ? "text" : "password";
+  }
+
+  function switchToSignUp() {
+    alert("Switch to Sign Up not implemented yet!");
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("Login successful (dummy).");
+  }
+
+  function signInWithGitHub() {
+    alert("GitHub auth not implemented.");
+  }
+</script>
+
+</body>
+</html>

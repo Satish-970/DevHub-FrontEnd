@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>index</title>
+  <link rel="stylesheet" href="Css/index.css" />
+    <link rel="stylesheet" href="Css/navbar.css"/>
+
+  <script src="JS/index.js"></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html">DEV - HUB</a></li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <li><a href="comments.html">Comments</a></li>
+    <li><a href="account.html">Account</a></li>
+    <li><a href="Login.html" onclick="logout()">Logout</a></li>
+  </ul>
+</nav>
+
+
+  <main class="dashboard-container">
+    <h2>Developer Community</h2>
+    <div id="developer-list" class="developer-grid">
+      <!-- Developer cards will be rendered here by JS -->
+    </div>
+  </main>
+
+  <script src="navbar.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

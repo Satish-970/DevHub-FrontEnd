@@ -1,0 +1,283 @@
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  margin: 0;
+  padding: 20px;
+  color: #e2e8f0;
+  line-height: 1.6;
+  animation: fadeInBody 0.6s ease-in;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Main Container */
+.project-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header */
+h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Filter Input */
+.filter-box {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 25px;
+  border: 1px solid #64748b;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  transition: border 0.3s ease;
+}
+
+.filter-box:focus {
+  border-color: #60a5fa;
+  outline: none;
+}
+
+/* Add Button */
+.add-btn {
+  background-color: #1e40af;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Project List */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Card Styles */
+.project-card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  color: #f8fafc;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.project-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.project-desc {
+  font-size: 15px;
+  margin: 8px 0 12px;
+  color: #cbd5e1;
+}
+
+.project-tech {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+/* Links */
+.project-links a {
+  display: inline-block;
+  margin-right: 14px;
+  color: #93c5fd;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+  color: #bfdbfe;
+}
+
+/* Button Actions */
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.project-actions button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #facc15;
+  color: #1e293b;
+}
+
+.edit-btn:hover {
+  background-color: #eab308;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: zoomIn 0.25s ease;
+  color: #1e293b;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); }
+  to { transform: scale(1); }
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  resize: vertical;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+/* Modal Buttons */
+.submit-btn, .cancel-btn {
+  padding: 10px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.submit-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #059669;
+}
+
+.cancel-btn {
+  background-color: #6b7280;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #4b5563;
+}
+
+/* Utility */
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .project-actions button,
+  .add-btn {
+    width: 100%;
+  }
+
+  .project-title {
+    font-size: 18px;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+}
